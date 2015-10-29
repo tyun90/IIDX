@@ -1,0 +1,78 @@
+#scoreTable {
+    background-color: black;
+    color:white;
+    border-spacing: 0px;
+    box-sizing: border-box;
+}
+
+
+#scoreTable tr td {
+    border: 1px white solid;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+
+.animate-enter {
+    -webkit-transition: 5s linear all;
+    transition: 5s linear all;
+    opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+    opacity: 1;
+}
+
+.Another {
+    background-color:red;
+}
+
+.Hyper {
+    background-color:coral;
+}
+
+.Normal {
+    background-color:aqua;
+}
+    
+.FULLCOMBO {
+    -webkit-animation: fcLoop 100ms linear infinite;
+}
+
+.EXHARDCLEAR {
+    -webkit-animation: exLoop 150ms linear infinite;
+}
+
+.HARDCLEAR {
+    background-color:antiquewhite;   
+}
+
+.CLEAR {
+    background-color:red;
+}
+
+.FAILED {
+    background-color: red;
+    -webkit-animation: failLoop 100ms linear infinite;
+}
+
+.NOPLAY {
+    background-color: black;
+}
+
+@-webkit-keyframes fcLoop {
+    0% {background-color: #ffffff;}
+    50% {background-color: #00ffff;}
+    100% {background-color: #ffff00;}
+}
+
+@-webkit-keyframes exLoop {
+    0% {background-color: red;}
+    100% {background-color: yellow;}
+}
+
+@-webkit-keyframes failLoop {
+    0% {background-color: black};
+    50% {background-color: darkred};
+    100% {background-color: black};
+}

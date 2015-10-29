@@ -1,0 +1,26 @@
+<table>
+    <tr>
+        <td><label for=user>Username</label></td>
+        <td><input type=text id="user" value=""></td>
+    </tr>
+    <tr>
+        <td><label for=pass>Password</label></td>
+        <td><input type="password" id="pass" value=""></td>
+    </tr>
+    <tr>
+        <td><label for=kid>Konami-ID</label></td>
+        <td><input type=text id="kid" value=""></td>
+        <td rowspan="2"><button ng-click="findID()" tabindex="-1">Find IIDX-ID</button></td>
+    </tr>
+    <tr>
+        <td><label for=kpw>Konami-Password</label></td>
+        <td><input type="password" id="kpw" value=""></td>
+    </tr>
+    <tr>
+        <td><label for=id>IIDX-ID</label></td>
+        <td><span id=IIDXID></span></td>
+    </tr>
+    <tr>
+        <td><button id=submit disabled=true ng-click="createAccount()">Submit</button></td>
+    </tr>
+</table>

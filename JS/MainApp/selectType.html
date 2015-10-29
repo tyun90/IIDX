@@ -1,0 +1,91 @@
+<div>
+    
+    <div ng-show="pageState != 'type'">
+        <button ng-click="back()">Back</button>
+    </div>
+    
+    <table ng-show="pageState == 'type'">
+        <tr>
+            <td><button id=selectSongs ng-click="courseCreator('listAll'); changeState('selectAll')">Select</button></td>
+        </tr>
+        <tr>
+            <td><button id=Random ng-click="changeState('random')">Random</button></td>
+        </tr>
+    </table>
+    
+    <table ng-show="pageState =='selectAll'">
+        <tr>
+            <td><input ng-model=inputName type=text id=songName value="" ng-model="search"></td>
+        </tr>
+        <tr>
+            <td>
+                <button ng-click="addToCourse('first')" ng-show="courseList.first == ''">Add to slot</button>
+                <span ng-click="removeFromCourse('first')" ng-show="courseList.first != ''">{{courseList.first}}</span>
+            </td>
+            <td>
+                <button ng-click="addToCourse('second')" ng-show="courseList.second == ''">Add to slot</button>
+                <span ng-click="removeFromCourse('second')" ng-show="courseList.second != ''">{{courseList.second}}</span>
+            </td>
+            <td>
+                <button ng-click="addToCourse('third')" ng-show="courseList.third == ''">Add to slot</button>
+                <span ng-click="removeFromCourse('third')" ng-show="courseList.third != ''">{{courseList.third}}</span>
+            </td>
+            <td>
+                <button ng-click="addToCourse('fourth')" ng-show="courseList.fourth == ''">Add to slot</button>
+                <span ng-click="removeFromCourse('fourth')" ng-show="courseList.fourth != ''">{{courseList.fourth}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div ng-show="canSubmit == false" ng-repeat="song in songs | orderBy:'toString()' | filter:inputName">
+                    <div ng-click="pickedSong(song)">{{song}}</div>
+                </div>
+                <button ng-click="courseCreator('submit')" ng-show="canSubmit == true">Submit Course</button>
+            </td>
+        </tr>
+    
+    </table>
+    
+    <table ng-show="pageState == 'random'">
+        <tr>
+            <td><button id=RandomAll ng-click="courseCreator('randomAll'); changeState('submitCourse')">Random All</button></td>
+        </tr>
+        <tr>
+            <td><button id=RandomLevel>Random Level</button></td>
+            
+        </tr>
+        <tr>
+            <td><button id=RandomStyle>Random Style</button></td>
+        </tr>
+        <tr>
+            <td><button id=RandomPlus>Random+</button></td>
+        </tr>
+        <tr>
+            <td><input type=text id="courseName" value="" placeholder="Enter Course Name"></td>
+        </tr>
+    </table>
+    
+    <table ng-show="pageState == 'submitCourse'">
+        <tr>
+            <td><label>1st Song</label></td>
+            <td><div id=songOne></div></td>
+        </tr>
+        <tr>
+            <td><label>2nd Song</label></td>
+            <td><div id=songTwo></div></td>
+        </tr>
+        <tr>
+            <td><label>3rd Song</label></td>
+            <td><div id=songThree></div></td>
+        </tr>
+        <tr>
+            <td><label>4th Song</label></td>
+            <td><div id=songFour></div></td>
+        </tr>
+        <tr>
+            <td><button ng-click="courseCreator('submit')">Submit Course</button></td>
+        </tr>
+    </table>
+    
+    
+</div>

@@ -1,0 +1,14 @@
+<div>
+    <link rel=stylesheet type="text/css" href="JS/MainApp/uploadPage.css">
+    <div id="UplodeOptionContainer">
+        <button id="Upload" ng-click="upload()">Upload</button>
+    </div>
+    <table>
+        <tr ng-repeat="(key, val) in upProgress">
+            <td class="meter">
+                <div class="progressBar" ng-style= "{'width' : val}"></div>
+                <div class="uploadStyle">{{key}}</div>
+            </td>
+        </tr>
+    </table>
+</div>

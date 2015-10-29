@@ -1,0 +1,31 @@
+<div>
+    <link rel="stylesheet" href="JS/MainApp/scoreView.css">
+    <list>
+        <ul ng-click="setDifficulty('Normal')">Normal</ul>
+        <ul ng-click="setDifficulty('Hyper')">Hyper</ul>
+        <ul ng-click="setDifficulty('Another')">Another</ul>
+    </list>
+    <table>
+        <tr>
+            <td ng-click="selectedStyle = ''">ALL</td>
+            <td ng-click="selectedStyle = 'PENDUAL'">PENDUAL</td>
+            <td ng-click="selectedStyle = 'SPADA'">SPADA</td>
+        </tr>
+    </table>
+    <table id="scoreTable" ng-style=" {'width': '100%'}">
+        <tr>
+            <td></td>
+            <td>Level</td>
+            <td>Name</td>
+            <td>EX Score</td>
+            <td>Rate</td>
+        </tr>
+        <tr ng-repeat="score in scoreData | filter:{Style:selectedStyle}">
+            <td class="{{score.Score.SP[difficulty].ClearLamp.split(' ').join('')}}"></td>
+            <td class="{{difficulty}}">{{score.Score.SP[difficulty].Level}}</td>
+            <td>{{score.Name}}</td>
+            <td>{{score.Score.SP[difficulty].EX+"/"+score.Score.SP[difficulty].Notes*2}}</td>
+            <td>{{((score.Score.SP[difficulty].EX/(score.Score.SP[difficulty].Notes*2))*100).toFixed(2)+"%"}}</td>
+        </tr>
+    </table>
+</div>
